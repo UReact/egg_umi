@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[6],{OQho:function(e,t,a){"use strict";var o=a("g09b");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var r=o(a("q1tI")),u=o(a("yv+P")),d=e=>{var t=e.location.query;return delete t.ref,r.default.createElement(u.default,t)};t.default=d}}]);

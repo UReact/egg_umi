@@ -1,0 +1,89 @@
+@import '~antd/lib/style/themes/default.less';
+
+@base-color : rgba(0,153,100,1);
+@base-black-color : rgba(0,87,57,1);
+
+.col{
+  margin-bottom: 12px;
+  :global {
+    .ant-card-body {
+      padding: 18px;
+    }
+    .ant-card-meta-title {
+      text-overflow: unset;
+      overflow: unset;
+      white-space: unset;
+      font-size: 15px;
+      margin-top: 20px;
+      font-weight: 100;
+    }
+    .ant-card-actions {
+      border-top: 0;
+      > li > span {
+        display: block;
+        cursor: default;
+        text-align: left;
+        padding: 0 18px;
+      }
+    }
+    .cardCover {
+      background-image: linear-gradient(to right, @base-color, @base-black-color);
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      height: 100px;
+    }
+    .ant-avatar-image {
+      background-color: #fff;
+    }
+  }
+  
+}
+
+.viewAt {
+  position: absolute;
+  top: 0;
+  right: 7px;
+  text-align: right;
+  padding: 6px 8px;
+  line-height: 14px;
+  color: #fff;
+  background-color: #F50;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 1px 1px 0 1px rgba(0,0,0,.1);
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.more {
+  :global {
+    .ant-card-body {
+      height: 287px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .ant-card-bordered {
+      border: none;
+    }
+  }
+}
+
+
+
+@media (max-width: @screen-sm) {
+  .more {
+    :global {
+      .ant-card-body {
+        height: auto;
+        line-height: 30px;
+      }
+      .ant-card-bordered {
+        border: 1px solid #e8e8e8;
+      }
+    }
+  }
+}

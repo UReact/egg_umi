@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<title>{{ title }}</title>
+<link type="image/x-icon" rel="icon" href="{{faviconUrl}}">
+<meta name="description" content="{{keywork}}">
+<meta name="keywords" content="{{description}}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script>
+var baiduTongji = function() {
+  window._hmt = window._hmt || [];
+  var sc;
+  (function () {
+    if ((sc = document.getElementById('baidu'))) {
+        document.head.removeChild(sc);
+    }
+    var hm = document.createElement('script');
+    hm.src = "https://hm.baidu.com/hm.js";
+    hm.id = 'baidu';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+};
+baiduTongji()
+</script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+body {
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  background-color: #005739;
+  {# background-color: #009964; #}
+}
+.card * {
+  text-shadow: none;
+}
+.cover-container {
+  max-width: 42em;
+}
+.nav-link.active, .nav-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+.nav-link + .nav-link {
+  margin-left: 1rem;
+}
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+}
+</style>
+<body>
+  <div class="cover-container mx-auto p-3">
+    <header class="mb-10">
+      <h3 class="float-left">HiredChina.com</h3>
+      <nav class="nav justify-content-end">
+        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link" href="/jobs">Jobs</a>
+        <a class="nav-link" href="/intentions">Candidates</a>
+      </nav>
+    </header>
+  </div>
+  <div id="hotJobsCarousel" class="carousel slide mt-5" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>Hot Jobs</h1>
+          <p>{{description}}</p>
+        </div>
+      </div>
+      {# <div class="carousel-item">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>Hot Jobs2</h1>
+          <p>{{description}}</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>Hot Jobs3</h1>
+          <p>{{description}}</p>
+        </div>
+      </div> #}
+    </div>
+    {# <a class="carousel-control-prev" href="#hotJobsCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#hotJobsCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> #}
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      {% for item in positionList %}
+        <div class="col-xl-3 col-lg-4 col-md-4 mh-100 mb-4">
+          <a class="card" href="/jobs/{{item.line}}" style="text-decoration: none;">
+            <div class="card-body">
+              <img class="rounded mb-2" alt="{{item.companyName}} logo" src="{{item.companyLogoimgurl}}?imageView2/2/w/50" />
+              <h4 class="text-truncate text-dark">{{item.title}}</h4>
+              <h5 class="text-truncate text-secondary">{{item.companyName}}</h5>
+              <p class="text-truncate text-muted">{{i18nObj[item.employmentKey]}} | {{i18nObj[item.salaryKey]}}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center">
+      <h5><a href="/jobs" class="text-white">More jobs</a></h5>
+    </div>
+  </div>
+  
+
+  <div id="hotResumeCarousel" class="carousel slide mt-5" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>The newest resume</h1>
+          <p>{{description}}</p>
+        </div>
+      </div>
+      {# <div class="carousel-item">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>The newest resume2</h1>
+          <p>{{description}}</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="cover-container mx-auto py-4 px-2 text-center">
+          <h1>The newest resume3</h1>
+          <p>{{description}}</p>
+        </div>
+      </div> #}
+    </div>
+    {# <a class="carousel-control-prev" href="#hotResumeCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#hotResumeCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> #}
+  </div>
+  <div class="container-fluid mb-5">
+    <div class="row justify-content-center">
+      {% for item in personList %}
+        <div class="col-xl-3 col-lg-4 col-md-4 mh-100 mb-4">
+          <a class="card" href="/profiles/{{item.line}}" style="text-decoration: none;">
+            <div class="card-body text-center">
+              <div style="height: 100px; width: 100px; overflow: hidden;" class="rounded-circle mb-2 mx-auto">
+                <img class="mw-100" alt="{{item.firstName}} profile photo" src="{{item.headimgurl}}?imageView2/2/w/150" />
+              </div>
+              
+              <h4 class="text-truncate text-dark">{{item.firstName}}</h4>
+              <h5 class="text-truncate text-secondary">{{item.headline}}</h5>
+              <p class="text-truncate text-muted"><span>{{i18nObj['hcapi.profile.come.to.china.in']}}</span> {{item.comeChinaYear}}</p>
+              <h5 class="text-success">{{i18nObj['hcapi.profile.looking.to']}}</h5>
+              <p class="text-truncate text-muted mb-0">
+                <strong>{{i18nObj['hcapi.profile.work.in']}}:</strong> 
+                {% if item.wantedAreas.length %}
+                  {% for n in item.wantedAreas %}
+                    <span>{{i18nObj[n.areaKey]}}</span>
+                  {% endfor %}
+                {% else %}
+                  <span>{{i18nObj['hcapi.profile.anywhere']}}</span>
+                {% endif %}
+              </p>
+              <p class="text-truncate text-muted mb-0">
+                <strong>{{i18nObj['hcapi.profile.engaged.in']}}:</strong> 
+                {% if item.wantedPosts.length %}
+                  {% for n in item.wantedPosts %}
+                    <span>{{i18nObj[n.postKey]}}</span>
+                  {% endfor %}
+                {% else %}
+                  <span>{{i18nObj['hcapi.profile.anything']}}</span>
+                {% endif %}
+              </p>
+              <p class="text-truncate text-muted">
+                <strong>{{i18nObj['hcapi.profile.can.do']}}:</strong> 
+                {% if item.wantedEmployments.length %}
+                  {% for n in item.wantedEmployments %}
+                    <span>{{i18nObj[n.employmentKey]}}</span>
+                  {% endfor %}
+                {% else %}
+                  <span>{{i18nObj['hcapi.profile.can.do.anything']}}</span>
+                {% endif %}
+              </p>
+              <p class="text-truncate text-muted">
+                {% if item.salaryKey %}
+                  {{i18nObj[item.salaryKey]}}
+                {% else %}
+                  <span>{{i18nObj['support.salarie.keep.secret']}}</span>
+                {% endif %}
+              </p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center">
+      <h5><a href="/intentions" class="text-white">More resumes</a></h5>
+    </div>
+  </div>
+  <footer class="mt-5 pb-4 mastfoot text-center">
+    <p>Copyright  2015 - 2018 <strong><a href="/" class="text-white">HiredChina</a></strong>
+    <br/>
+    <small><a class="text-muted" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16003809号-2</a></small>
+    </p>
+  </footer>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

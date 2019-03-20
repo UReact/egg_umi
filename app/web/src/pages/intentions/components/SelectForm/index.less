@@ -1,0 +1,95 @@
+
+@import '~antd/lib/style/themes/default.less';
+
+@base-color : rgba(0,153,100,1);
+@base-black-color : rgba(0,87,57,1);
+
+
+.topSelect {
+  background-image: linear-gradient(to right, @base-color, @base-black-color);
+  z-index: 0;
+  margin-top: -24px;
+  height: 100px;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: 24px;
+}
+.selectSupportDiv {
+  margin-bottom: 16px;
+  :global {
+    .ant-select-selection {
+      border: none;
+    }
+    .ant-select-focused .ant-select-selection,
+    .ant-select-selection:focus,
+    .ant-select-selection:active {
+      box-shadow: none;
+    }
+    .ant-select-selection-selected-value {
+      color: @base-color;
+      font-weight: bold;
+    }
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-form-item-control-wrapper, .ant-form-item-label {
+      display: inline-flex;
+    }
+  }
+}
+
+.topSelectBox {
+  position: relative;
+  :global {
+    .ant-select-selection {
+      border-radius: 20px;
+      border: none;
+    }
+    .ant-select-selection__placeholder {
+      left: 24px;
+    }
+    .ant-select-search--inline .ant-select-search__field {
+      padding-left: 24px;
+    }
+    .anticon-search {
+      position: absolute;
+      z-index: 1;
+      margin-top: -10px;
+      top: 50%;
+      left: 13px;
+      line-height: 20px;
+      font-size: 19px;
+    }
+
+    .ant-select-selection-selected-value {
+      padding-left: 24px;
+    }
+  }
+}
+.topSelectDropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    border: 1px solid @base-color;
+    display: inline-flex;
+    margin: 8px 12px;
+    cursor: pointer;
+    padding: 6px;
+    line-height: 20px;
+    :global { 
+      .anticon-search {
+        color: @base-black-color;
+        padding: 3px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: @screen-sm) {
+  .topSelect { 
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
